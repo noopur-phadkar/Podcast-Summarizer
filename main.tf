@@ -1,4 +1,5 @@
 # Creating resource variable
+variable "role_name" {}
 variable "transcribe_function_name" {}
 variable "transcribe_file_name" {}
 variable "summy_function_name" {}
@@ -16,29 +17,11 @@ variable "flask_layer_file_name" {}
 variable "key_name" {}
 variable "ami_image" {}
 
-# EC2 key pair creation
-# resource "aws_key_pair" "summarizer_key" {
-#   key_name   = var.key_name
-#   public_key = tls_private_key.rsa.public_key_openssh
-# }
-
-# resource "tls_private_key" "rsa" {
-#   algorithm = "RSA"
-#   rsa_bits  = 4096
-# }
-
-# resource "local_file" "summarizer_key" {
-#     content  = tls_private_key.rsa.private_key_pem
-#     filename = var.key_name
-# }
-
 # Create policy for role
 
 resource "aws_iam_role" "role" {
-  name = "termproject_role"
+  name = var.role_name
 
-  # Terraform's "jsonencode" function converts a
-  # Terraform expression result to valid JSON syntax.
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -158,14 +141,6 @@ resource "aws_s3_bucket" "mp3_bucket" {
   bucket = "${var.mp3_bucket_name}"
 }
 
-resource "aws_s3_bucket_public_access_block" "mp3_bucket_block" {
-bucket = aws_s3_bucket.mp3_bucket.id
-block_public_acls       = true
-block_public_policy     = true
-ignore_public_acls      = true
-restrict_public_buckets = true
-}
-
 # To create S3 bucket to store the output of transcribe job as a json file
 resource "aws_s3_bucket" "json_bucket" {
   bucket = "${var.json_bucket_name}"
@@ -174,14 +149,6 @@ resource "aws_s3_bucket" "json_bucket" {
 # To create S3 bucket to store the output of summy summarizer as a txt file
 resource "aws_s3_bucket" "txt_bucket" {
   bucket = "${var.txt_bucket_name}"
-}
-
-resource "aws_s3_bucket_public_access_block" "txt_bucket_block" {
-bucket = aws_s3_bucket.txt_bucket.id
-block_public_acls       = true
-block_public_policy     = true
-ignore_public_acls      = true
-restrict_public_buckets = true
 }
 
 # FrontEnd Structure
