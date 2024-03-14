@@ -1,9 +1,0 @@
-provider "aws" {
-region = "us-east-1"
-access_key  = "AKIA5O27FUH26JIPTEXS"
-secret_key  = "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"
-}
-
-# aws_access_key_id=ASIATGHTKUNXASUQZP72
-# aws_secret_access_key=Gaif2YO0IoujEUmlBgwCrZbuQcnxczqPOiNzt/eh
-# aws_session_token=FwoGZXIvYXdzEAUaDDHyw1EsT2KDUvpFvyK9AZ1ojQyO8bwc52vR0q9gfakE95r6e5OOWKOSoNFRGWr5e6qO/yhZywYGW1z2wgAgAvoiefRPhbQC45dF4uZH275P3R47PCifylWhvsamS6kxkXbSWLjaD/DYsU7Gk72zJO1AcX51MqIYNPAHYJ+pPN8fsfywTr2mOI+8ZuiruR4wbvXjsFVe1SqRocqxs3VU/7Trq7Qd9suc5x7e63w2GwgLkuEGr2EMj+3MdnzZpsQqNHOn1znNBmxBmRw7yijUhoacBjItOcYIuXjgWbbamhHKGptWvvfjE08hfguLpz4N6Vwkqcx4XaDd2Q+Bo9k1BbgB
