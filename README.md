@@ -26,8 +26,10 @@ Podcasting has become a popular medium for consuming content across various topi
 
 Terraform played a crucial role in this project by enabling Infrastructure as Code (IaC) practices. With Terraform, I could define and provision the necessary AWS resources programmatically, ensuring consistency and reproducibility across deployments. The Terraform scripts were responsible for creating EC2 instances to host the frontend application, setting up Lambda functions for audio processing, configuring S3 buckets for data storage, and managing IAM roles for access control. This approach streamlined the deployment process and facilitated easy scalability as the project evolved.
 
-You can find the main terraform code in the file [main.tf](main.tf)
+## Set Up
 
+- The steps for setting up are in the file [setup.txt](setup.txt)
+- All the terraform files are in the folder [terraform](terraform/)
 
 ## Architecture Diagram
 
